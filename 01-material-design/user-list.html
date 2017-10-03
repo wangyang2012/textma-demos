@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Users List</title>
+	<link href="include/css/bootstrap.css" rel="stylesheet"></link>
+    <link href="include/css/material.min.css" rel="stylesheet"></link>
+    <link href="include/css/app.css" rel="stylesheet"></link>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script defer src="include/js/material.min.js"></script>
+
+
+<style>
+.demo-layout-transparent {
+  
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: blue;
+}
+</style>
+</head>
+
+<body>
+
+
+
+
+
+
+<div class="row col-md-12 ml-1 mt-1">
+    <a href="accueil.html">
+        <img src="include/images/textma-logo.jpg">
+    </a>
+    <H1 class="ml-1 mt-3">TEXTMA</H1>
+</div>
+
+<ul class="mdl-navigation">
+    <li  class="mdl-list__item">
+        <a class="mdl-navigation__link" href="accueil.html">ACCUEIL</a>
+    </li>
+    <li  class="mdl-list__item">
+        <a class="mdl-navigation__link" href="user-list.html">Utilisateurs</a>
+    </li>
+    <li  class="mdl-list__item">
+        <a class="mdl-navigation__link" href="client-list.html">Clients</a>
+    </li>
+    <li  class="mdl-list__item">
+        <a class="mdl-navigation__link" href="">Articles</a>
+    </li>
+    <li  class="mdl-list__item">
+        <a class="mdl-navigation__link disabled" href="">Livraison</a>
+    </li>
+</ul>
+
+
+  
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Menu supplémentaire</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+
+
+	<div class="mdl-card mdl-shadow--2dp ml-3 mb-2" style="width: 900px;">
+		<div class="mdl-card__title">
+			<h3>List of Users</h3>
+		</div>
+		<div class="mdl-card__supporting-text">
+		
+
+			<table id="userList" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2d">
+				<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Email</th>
+					<th>Login</th>
+					<th width="100"></th>
+					<th width="100"></th>
+				</tr>
+				</thead>
+				<tbody>
+
+				<tr>
+					<td class="mdl-data-table__cell--non-numeric">test</td>
+					<td>test</td>
+					<td>dfqs</td>
+					<td>etienne.bancaltest</td>
+					<td><a href="user.html" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">edit</a></td>
+					<td><a href="" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">delete</a></td>
+				</tr>
+
+				<tr>
+					<td class="mdl-data-table__cell--non-numeric">Yang</td>
+					<td>WANG</td>
+					<td>yang@yang.com</td>
+					<td>yang</td>
+					<td><a href="user.html" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">edit</a></td>
+					<td><a href="" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">delete</a></td>
+				</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+<div>
+    <a href="user.html" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"><i class="material-icons">add</i></a>
+</div>
+</main>
+</div>
+
+</body>
+</html>

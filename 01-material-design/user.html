@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>User Registration Form</title>
+    <link href="include/css/bootstrap.css" rel="stylesheet"></link>
+    <link href="include/css/app.css" rel="stylesheet"></link>
+	<link href="include/css/material.min.css" rel="stylesheet"></link>
+	<script defer src="include/js/material.min.js"></script>
+</head>
+
+<body>
+
+<div class="row col-md-12 ml-1 mt-1">
+    <a href="accueil.html">
+        <img src="include/images/textma-logo.jpg">
+    </a>
+    <H1 class="ml-1 mt-3">TEXTMA</H1>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="accueil.html">ACCUEIL</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="user-list.html">Utilisateurs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="client-list.html">Clients</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="">Articles</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="">Livraison</a>
+    </li>
+</ul>
+
+	<div class="mdl-card mdl-shadow--2dp ml-3 mb-2" style="width: 800px;">
+		<div class="mdl-card__title">
+			<h3>User form</h3>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<form id="user" class="form-horizontal ml-3" action="user-list.html" method="GET">
+				<input id="id" name="id" type="hidden" value="1"/>
+			  
+				<div class="row ml-3">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input id="firstName" name="firstName" class="mdl-textfield__input" type="text"/>
+						<label class="mdl-textfield__label" for="firstName">First name</label>
+					</div>
+				</div>
+				
+				<div class="row ml-3">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input id="larstName" name="lastName" class="mdl-textfield__input" type="text" value="Yang"/>
+						<label class="mdl-textfield__label" for="lastName">Last name</label>
+					</div>
+				</div>
+				
+				<div class="row ml-3">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input id="password" name="password" class="mdl-textfield__input" type="password"/>
+						<label class="mdl-textfield__label" for="password">Password</label>
+					</div>
+				</div>
+
+				<div class="row ml-3">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input id="email" name="email" class="mdl-textfield__input" type="email"/>
+						<label class="mdl-textfield__label" for="email">Email</label>
+					</div>
+				</div>
+
+				<div class="row ml-3 mb-3">
+					<input class="mdl-slider mdl-js-slider" id="slider" type="range" min="0" max="100" value="25" tabindex="0">
+				</div>
+
+				<div class="row ml-3 mb-3">
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+					  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+					  <span class="mdl-checkbox__label">Checkbox</span>
+					</label>
+				</div>
+				<div class="row ml-3 mb-3">
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+					  <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+					  <span class="mdl-switch__label">Switch</span>
+					</label>
+				</div>
+
+
+				<div class="row">
+					<div class="form-actions floatRight">
+						<input type="submit" value="Update" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"/> or <a href="user-list.html" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Cancel</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
