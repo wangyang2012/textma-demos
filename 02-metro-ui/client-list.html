@@ -1,128 +1,268 @@
-
-
+<!DOCTYPE html>
 <html>
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Client List</title>
-	<link href="include/css/bootstrap.css" rel="stylesheet"></link>
-	<link href="include/css/app.css" rel="stylesheet"></link>
-	<script type="text/javascript" src="include/js/jquery.js"></script>
-	<script type="text/javascript" src="include/js/jquery.dataTables.min.js"></script>
-	<link href="include/css/jquery.dataTables.min.css" rel="stylesheet"></link>
-	<script>
-        $(document).ready(function() {
-            $('#clientTable').DataTable();
-        } );
-	</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+    <link rel='shortcut icon' type='image/x-icon' href='include/favicon.ico' />
+
+    <title>Clients</title>
+
+    <link href="include/css/metro.css" rel="stylesheet">
+    <link href="include/css/metro-icons.css" rel="stylesheet">
+    <link href="include/css/metro-responsive.css" rel="stylesheet">
+
+    <script src="include/js/jquery-2.1.3.min.js"></script>
+    <script src="include/js/jquery.dataTables.min.js"></script>
+
+    <script src="include/js/metro.js"></script>
+
+    <style>
+    html, body {
+        height: 100%;
+    }
+    body {
+    }
+    .page-content {
+        padding-top: 3.125rem;
+        min-height: 100%;
+        height: 100%;
+    }
+    .table .input-control.checkbox {
+        line-height: 1;
+        min-height: 0;
+        height: auto;
+    }
+
+    @media screen and (max-width: 800px){
+        #cell-sidebar {
+            flex-basis: 52px;
+        }
+        #cell-content {
+            flex-basis: calc(100% - 52px);
+        }
+    }
+</style>
+
+<script>
+    $(function(){
+        $('.sidebar').on('click', 'li', function(){
+            if (!$(this).hasClass('active')) {
+                $('.sidebar li').removeClass('active');
+                $(this).addClass('active');
+            }
+        })
+    })
+</script>
 </head>
+<body class="bg-steel">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding">TEXTMA</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li><a href="accueil.html">Accueil</a></li>
+            <li>
+                <a href="" class="dropdown-toggle">Clients</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="client-list.html">Liste</a></li>
+                    <li><a href="">Général</a></li>
+                    <li><a href="">Contacts</a></li>
+                    <li><a href="">Adresses de livraison</a></li>
+                    <li><a href="">Remises</a></li>
+                </ul>
+            </li>
 
-<body>
-    
-    <div class="row col-md-12 ml-1 mt-1">
-    <a href="accueil.html">
-        <img src="include/images/textma-logo.jpg">
-    </a>
-     <H1 class="ml-1 mt-3">TEXTMA</H1>
-</div>
+            <li>
+                <a href="" class="dropdown-toggle">Fournisseurs</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="">Liste</a></li>
+                    <li><a href="">Général</a></li>
+                    <li><a href="">Contacts</a></li>
+                    <li><a href="">Adresses de livraison</a></li>
+                    <li><a href="">Observations</a></li>
+                </ul>
+            </li>
 
 
-	<ul class="nav nav-tabs">
-		<li class="nav-item">
-			<a class="nav-link" href="accueil.html">ACCUEIL</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="user-list.html">Utilisateurs</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" href="client-list.html">Clients</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link disabled" href="">Articles</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link disabled" href="">Livraison</a>
-		</li>
-	</ul>
+            <li><a href="">Articles</a></li>
+            <li><a href="">Vente</a></li>
+            <li>
+                <a href="" class="dropdown-toggle">Facturations</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="">ChatOn</a></li>
+                    <li><a href="">Community support</a></li>
+                    <li class="divider"></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </li>
+        </ul>
 
-	<h3>List des clients</h3>
-			  <!-- Default panel contents -->
-			<table id="clientTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-	    		<thead>
-		      		<tr>
-				        <th>ID</th>
-				        <th>Nom</th>
-				        <th>Email</th>
-				        <th>Adresse</th>
-				        <th>Groupe</th>
-				        <th width="100"></th>
-				        <th width="100"></th>
-					</tr>
-		    	</thead>
-	    		<tbody>
-				
-					<tr>
-						<td>4</td>
-						<td>client-H</td>
-						<td>client4@dd.com</td>
-						<td>4, rue XXX, 75004 Paris</td>
-						<td>groupe-BBB</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-					<tr>
-						<td>5</td>
-						<td>client-I</td>
-						<td>client5@ee.com</td>
-						<td>5, rue YYY, 75005 Paris</td>
-						<td>groupe-BBB</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-					<tr>
-						<td>6</td>
-						<td>client-M</td>
-						<td>client6@ff.com</td>
-						<td>6, rue XXX, 75006 Paris</td>
-						<td>groupe-AAA</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-					<tr>
-						<td>1</td>
-						<td>client-X</td>
-						<td>client1@aa.com</td>
-						<td>1, rue ABC, 75001 Paris</td>
-						<td>groupe-AAA</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-					<tr>
-						<td>2</td>
-						<td>client-Y</td>
-						<td>cilent2@aa.com</td>
-						<td>2, rue ABC, 75002 Paris</td>
-						<td>groupe-BBB</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-					<tr>
-						<td>3</td>
-						<td>client-Z</td>
-						<td>client3@bb.com</td>
-						<td>3, rue XML, 75003 Paris</td>
-						<td>groupe-CCC</td>
-						<td><a href="" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="" class="btn btn-danger custom-width">delete</a></td>
-					</tr>
-				
-	    		</tbody>
-	    	</table>
-	 		<a href="">Nouveau client</a>
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-cog"></span> User Name</span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light">Quick settings</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white1 fg-hover-yellow">Profile</a></li>
+                    <li><a href="" class="fg-white2 fg-hover-yellow">Security</a></li>
+                    <li><a href="" class="fg-white3 fg-hover-yellow">Exit</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li><a href="accueil.html">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Accueil</span>
+                        </a></li>
+                        <li class="active"><a href="client-list.html">
+                            <span class="mif-vpn-publ icon"></span>
+                            <span class="title">Clients</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-drive-eta icon"></span>
+                            <span class="title">Fournisseurs</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-cloud icon"></span>
+                            <span class="title">Articles</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-database icon"></span>
+                            <span class="title">Vente</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-cogs icon"></span>
+                            <span class="title">Facturations</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <h1 class="text-light">Clients <span class="mif-drive-eta place-right"></span></h1>
+                    <hr class="thin bg-grayLighter">
+                    <button class="button primary" onclick="document.location='client.html'"><span class="mif-plus"></span> Création</button>
+                    <button class="button success" onclick="document.location='client.html'"><span class="mif-play"></span> Modification </button>
+                    <button class="button warning" onclick="document.location='client.html'"><span class="mif-loop2"></span> Duplication</button>
+                    <button class="button alert" data-role="draggable">Suppression</button>
+                    <hr class="thin bg-grayLighter">
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                        <thead>
+                            <tr>
+                                <td style="width: 20px">
+                                </td>
+                                <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                                <td class="sortable-column">Client name</td>
+                                <td class="sortable-column">Address</td>
+                                <td class="sortable-column" style="width: 20px">Favori</td>
+                                <td style="width: 20px">Bloquer</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    <label class="input-control checkbox small-check no-margin">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                                <td><a href="client.html">123890723212</a></td>
+                                <td><a href="client.html">Client 1</a></td>
+                                <td>1, rue Abc, 75001 Paris</td>
+                                <td class="align-center"><span class="mif-checkmark fg-green"></span></td>
+                                <td>
+                                    <label class="switch-original">
+                                        <input type="checkbox" checked>
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="input-control checkbox small-check no-margin">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                                <td><a href="client.html">123890723215</a></td>
+                                <td><a href="client.html">Client 2</a></td>
+                                <td>2, rue Def, 75002 Paris</td>
+                                <td class="align-center"><span class="mif-stop fg-red"></span></td>
+                                <td>
+                                    <label class="switch-original">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <label class="input-control checkbox small-check no-margin">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                                <td><a href="client.html">123890723217</a></td>
+                                <td><a href="client.html">Client 3</a></td>
+                                <td>3, rue République, 75003 Paris</td>
+                                <td class="align-center"><span class="mif-stop fg-green"></span></td>
+                                <td>
+                                    <label class="switch-original">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <label class="input-control checkbox small-check no-margin">
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                                <td><a href="client.html">123890723218</a></td>
+                                <td><a href="client.html">Client 4</a></td>
+                                <td>4, rue de la Libération, 75004 Paris</td>
+                                <td class="align-center"><span class="mif-stop fg-red"></span></td>
+                                <td>
+                                    <label class="switch-original">
+                                        <input type="checkbox" checked>
+                                        <span class="check"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" data-role="draggable" style="width:20%;bottom: 20px">
+            <div class="heading">
+                <span class="icon mif-home"></span>
+                <span class="title">Client 4</span>
+            </div>
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 </html>
