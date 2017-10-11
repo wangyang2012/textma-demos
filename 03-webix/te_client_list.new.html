@@ -17,19 +17,17 @@
 				container:"testA",
 				view:"datatable",
 				select:"row",
-				navigation:true,
-				autowidth:true,
-				autoheight:true,
-				datafetch:5,
-				loadahead:0,
-
-                columns:[
-                    { id:"name",	header:"Name", 		width:200 },
-                    { id:"siret",	header:"Siret",		width:120 }
-                ],
-				url:"http://localhost:9090/textma/teClients"
-			});	
+				autoConfig: true,
+				url:"http://localhost:9090/textma/teClients",
+				pager:{
+					container:"paging_here",
+					template: '{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}',
+					size:20,
+					group:8
+				}
+			});
 		});
 		</script>
 	</body>
 </html>
+<script src='https://cdn.ravenjs.com/3.10.0/raven.min.js'></script>
