@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Clients</title>
+		<title>Client</title>
 		<link rel="stylesheet" href="include/css/webix.css" type="text/css" charset="utf-8">
 		<script src="include/js/webix.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<h1>Clients</h1>
+		<h1>Client</h1>
+
+		<hr/>
+
+		<div id="my_form"></div>
+
+		<hr/>
+
 		<div id="select_page"></div>
 		<div id="grid"></div>
 		<div id="paging_here"></div>
 		<div id="selectedRow"></div>
+
+
 		<script type="text/javascript" charset="utf-8">
 
 
+            function getUrlVariable( name, url ) {
+                if (!url) url = location.href;
+                name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                var regexS = "[\\?&]"+name+"=([^&#]*)";
+                var regex = new RegExp( regexS );
+                var results = regex.exec( url );
+                return results == null ? null : results[1];
+            }
+
+
 		webix.ready(function(){
+            var idClient = getUrlVariable('client_id', window.location.href);
+            console.log("idClient: ", idClient);
+            var clientForm = [
+                { view:"text", label:"Name", name:"name"},
+                { view:"text",  label:"Adresse", name:"address"},
+                { view:"button",  name:"submit", value:"Submit", click:function(){
+                    var form = this.getParentView();
+                    webix.ajax().post("http://localhost:9090/textma/teClients", form.getValues(), function(text, data, xhr){ });
+                }}
+            ];
+
+            webix.ui({
+                view:"form",
+                id:"my_form",
+                elements: clientForm,
+				url: "http://localhost:9090/textma/teClients/"+idClient
+            });
+
+
+//            webix.ajax().get("http://localhost:9090/textma/teClients/"+idClient, function(text, data, xhr){
+//                var clientData = data.json();
+//                client.name.value = clientData.name;
+//			});
+
+
 
 			grida = webix.ui({
 				container:"grid",
