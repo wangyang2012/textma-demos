@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Dynamic paging. Loading from DB</title>
+		<title>Clients</title>
 		<link rel="stylesheet" href="include/css/webix.css" type="text/css" charset="utf-8">
 		<script src="include/js/webix.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<div class='header_comment'>Dynamic paging. Loading from DB (sqllite + php)</div>
-		<div id="testA"></div>
+		<h1>Clients</h1>
+		<div id="select_page"></div>
+		<div id="grid"></div>
 		<div id="paging_here"></div>
-		
 		<script type="text/javascript" charset="utf-8">
 
 		webix.ready(function(){
+
 			grida = webix.ui({
-				container:"testA",
+				container:"grid",
 				view:"datatable",
 				select:"row",
-				navigation:true,
 				autowidth:true,
 				autoheight:true,
-				datafetch:5,
-				loadahead:0,
-
+				datafetch:20,
+				autoConfig:true,
                 columns:[
-                    { id:"name",	header:"Name", 		width:200 },
-                    { id:"siret",	header:"Siret",		width:120 }
+                    { id:"id",			header:"Id", 				width:50 },
+                    { id:"name",		header:"Name", 				width:400 },
+                    { id:"siret",		header:"Siret",				width:200 },
+                    { id:"address",		header:"Adresse",			width:400 },
+                    { id:"codePostal",	header:"Code postal",		width:120 },
+                    { id:"ville",		header:"Ville",				width:200 }
                 ],
+				pager: {
+                    container:"paging_here",
+                    template: '{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}',
+                    size:20,
+                    group:8
+				},
 				url:"http://localhost:9090/textma/teClients"
-			});	
+			});
+
+            grida.getPager().clone({
+                container:"select_page",
+                template: function(data, common){
+							var current = data.page + 1;
+							var html = "Page <select onchange='grida.setPage(this.value)' style='text-align:center; width:150px'>";
+							for (var i=1; i<=data.limit; i++)
+								html+="<option "+(i == current?"selected='true'":"")+">"+i+"</option>";
+							html+="</select> from "+data.limit;
+							return html;
+						},
+                size:20,
+                group:8
+            });
 		});
 		</script>
 	</body>
