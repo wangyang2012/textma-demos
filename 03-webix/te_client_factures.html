@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Client</title>
 		<link rel="stylesheet" href="include/css/webix.css" type="text/css" charset="utf-8">
 		<script src="include/js/webix.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<h1>Client</h1>
+		<h1>Factures du client</h1>
 
 		<hr/>
 
@@ -52,14 +53,6 @@
 				url: "http://localhost:9090/textma/teClients/"+idClient
             });
 
-
-//            webix.ajax().get("http://localhost:9090/textma/teClients/"+idClient, function(text, data, xhr){
-//                var clientData = data.json();
-//                client.name.value = clientData.name;
-//			});
-
-
-
 			grida = webix.ui({
 				container:"grid",
 				view:"datatable",
@@ -69,12 +62,14 @@
 				datafetch:20,
 				autoConfig:true,
                 columns:[
-                    { id:"id",			header:"Id", 				width:50 },
-                    { id:"name",		header:"Name", 				width:400 },
-                    { id:"siret",		header:"Siret",				width:200 },
-                    { id:"address",		header:"Adresse",			width:400 },
-                    { id:"codePostal",	header:"Code postal",		width:120 },
-                    { id:"ville",		header:"Ville",				width:200 }
+                    { id:"numeroFacture",			header:"Numéro facture", 		width:100 },
+                    { id:"reference",				header:"Référence", 			width:100 },
+                    { id:"raisonSociale",			header:"Raison sociale",		width:300 },
+                    { id:"dateCreation",			header:"Date de création",		width:500 },
+                    { id:"totalHt",					header:"Total HT",				width:200 },
+                    { id:"totalTva",				header:"Total TVA",				width:200 },
+                    { id:"totalTtc",				header:"Total TTC",				width:200 },
+                    { id:"adresse",					header:"Adresse",				width:700 },
                 ],
 				pager: {
                     container:"paging_here",
@@ -82,15 +77,8 @@
                     size:20,
                     group:8
 				},
-                on:{
-                    onSelectChange:function(){
-                        var text = "Selected: "+grida.getSelectedId(true).join();
-                        document.getElementById('selectedRow').innerHTML = text;
-                        window.location.href = "te_client_factures.html?client_id=" + grida.getSelectedId(true).join();
-                    }
-                },
 
-                url:"http://localhost:9090/textma/teClients"
+                url:"http://localhost:9090/textma/teFactures/" + idClient
 			});
 
             grida.getPager().clone({
