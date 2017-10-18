@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<h1>Clients</h1>
+
 		<div id="select_page"></div>
 		<div id="grid"></div>
 		<div id="paging_here"></div>
@@ -24,14 +25,16 @@
 				autoheight:true,
 				datafetch:20,
 				dragColumn:true,
+
                 columns:[
-                    { id:"id",			header:["Id", {content:"textFilter"}], 				width:50 },
-                    { id:"name",		header:[ "Name",{content:"textFilter"}], 				width:400 },
+                    { id:"id",			header:["Id", {content:"serverFilter"}], 				width:50, sort:"server" },
+                    { id:"name",		header:["Name",{content:"serverFilter"}],editor:"text", 				width:400, sort:"server" },
                     { id:"siret",		header:"Siret",				width:200 },
                     { id:"address",		header:"Adresse",			width:400 },
                     { id:"codePostal",	header:"Code postal",		width:120 },
                     { id:"ville",		header:"Ville",				width:200 }
                 ],
+//                autoConfig:true,
 				pager: {
                     container:"paging_here",
                     template: '{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}',
@@ -62,7 +65,10 @@
                 size:20,
                 group:8
             });
+
+
 		});
+
 		</script>
 	</body>
 </html>

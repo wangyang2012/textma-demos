@@ -25,12 +25,12 @@
 
 
             function getUrlVariable( name, url ) {
-                if (!url) url = location.href;
-                name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-                var regexS = "[\\?&]"+name+"=([^&#]*)";
-                var regex = new RegExp( regexS );
-                var results = regex.exec( url );
-                return results == null ? null : results[1];
+                    if (!url) url = location.href;
+                    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                    var regexS = "[\\?&]"+name+"=([^&#]*)";
+                    var regex = new RegExp( regexS );
+                    var results = regex.exec( url );
+                    return results == null ? null : results[1];
             }
 
 
@@ -62,13 +62,13 @@
 				datafetch:20,
 				autoConfig:true,
                 columns:[
-                    { id:"numeroFacture",			header:"Numéro facture", 		width:100 },
-                    { id:"reference",				header:"Référence", 			width:100 },
-                    { id:"raisonSociale",			header:"Raison sociale",		width:300 },
-                    { id:"dateCreation",			header:"Date de création",		width:500 },
-                    { id:"totalHt",					header:"Total HT",				width:200 },
-                    { id:"totalTva",				header:"Total TVA",				width:200 },
-                    { id:"totalTtc",				header:"Total TTC",				width:200 },
+                    { id:"numeroFacture",			header:["Numéro facture", {content:"serverFilter"}], 		width:100 },
+                    { id:"reference",				header:"Référence", 			width:600 },
+                    { id:"raisonSociale",			header:"Raison sociale",		width:200 },
+                    { id:"dateCreation",			header:["Date de création",{content:"serverFilter"}],		width:300 },
+                    { id:"totalHt",					header:"Total HT",				width:150 },
+                    { id:"totalTva",				header:"Total TVA",				width:150 },
+                    { id:"totalTtc",				header:["Total TTC",{content:"serverFilter"}],				width:150 },
                     { id:"adresse",					header:"Adresse",				width:700 },
                 ],
 				pager: {
