@@ -9,11 +9,7 @@
 	<body>
 		<h1>Factures du client</h1>
 
-		<hr/>
-
 		<div id="my_form"></div>
-
-		<hr/>
 
 		<div id="select_page"></div>
 		<div id="grid"></div>
@@ -46,6 +42,7 @@
                 }}
             ];
 
+            console.log("idClient: " + idClient);
             webix.ui({
                 view:"form",
                 id:"my_form",
@@ -61,15 +58,16 @@
 				autoheight:true,
 				datafetch:20,
 				autoConfig:true,
+                editable:true,
                 columns:[
-                    { id:"numeroFacture",			header:["Numéro facture", {content:"serverFilter"}], 		width:100 },
+                    { id:"numeroFacture",			header:"Numéro facture", 		width:100 },
                     { id:"reference",				header:"Référence", 			width:600 },
-                    { id:"raisonSociale",			header:"Raison sociale",		width:200 },
-                    { id:"dateCreation",			header:["Date de création",{content:"serverFilter"}],		width:300 },
-                    { id:"totalHt",					header:"Total HT",				width:150 },
-                    { id:"totalTva",				header:"Total TVA",				width:150 },
-                    { id:"totalTtc",				header:["Total TTC",{content:"serverFilter"}],				width:150 },
-                    { id:"adresse",					header:"Adresse",				width:700 },
+                    { id:"raisonSociale", editor:"text",			header:"Raison sociale",		width:200 },
+                    { id:"dateCreation",			header:"Date de création",		width:300 },
+                    { id:"totalHt",	  editor:"text",				header:"Total HT",				width:150 },
+                    { id:"totalTva",  editor:"text",				header:"Total TVA",				width:150 },
+                    { id:"totalTtc", editor:"text",				header:"Total TTC",				width:150 },
+                    { id:"adresse",	 editor:"text",				header:"Adresse",				width:700 },
                 ],
 				pager: {
                     container:"paging_here",
