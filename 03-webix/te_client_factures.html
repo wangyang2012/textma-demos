@@ -15,14 +15,14 @@
 
 		<h1>Factures du client</h1>
 
-		<div id="my_form"></div>
+		<div id="my_form" draggable="true"></div>
 
-		<button class="button primary col-md-2" onclick="document.location='client.html'"><span class="mif-plus"></span> Création</button>
+		<button  draggable="true" class="button primary col-md-2" onclick="document.location='client.html'"><span class="mif-plus"></span> Création</button>
 		<button class="button success col-md-5" onclick="document.location='client.html'"><span class="mif-play"></span> Modification </button>
 		<button class="button warning col-md-3" onclick="document.location='client.html'"><span class="mif-loop2"></span> Duplication</button>
 
-		<div id="select_page"></div>
-		<div id="grid"></div>
+		<div id="select_page" draggable="true"></div>
+		<div id="grid" draggable="true"></div>
 		<div id="paging_here"></div>
 		<div id="selectedRow"></div>
 
@@ -76,6 +76,7 @@
             webix.ui({
                 view:"form",
                 container:"my_form",
+				drag:true,
                 elements: clientForm,
 				url: "http://localhost:9090/textma/teClients/"+idClient
             });
@@ -84,13 +85,14 @@
 				container:"grid",
 				view:"datatable",
 				select:"row",
+                dragColumn:true,
 				autowidth:true,
 				autoheight:true,
 				datafetch:20,
 				autoConfig:true,
                 editable:true,
                 columns:[
-                    { id:"numeroFacture",			header:"Numéro facture", 		width:100 },
+                    { id:"numeroFacture",			header:["Numéro facture", {content:"serverFilter"}], 		width:100 },
                     { id:"reference",				header:"Référence", 			width:600 },
                     { id:"raisonSociale", editor:"text",			header:"Raison sociale",		width:200 },
                     { id:"dateCreation",			header:"Date de création",		width:300 },
@@ -124,5 +126,6 @@
             });
 		});
 		</script>
+		<script src='https://cdn.ravenjs.com/3.10.0/raven.min.js'></script><script>Raven.config('https://54bc16c4067443cb9b64bdd04526dc0d@sentry.webix.io/10',{ release:'5.0.3'}).install();</script>
 	</body>
 </html>
